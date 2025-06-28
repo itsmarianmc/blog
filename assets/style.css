@@ -634,13 +634,14 @@ input:checked+.slider:before {
 	}
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-	.blog-cards {
+@media (max-width: 956px) {
+	.blog-grid {
 		grid-template-columns: 1fr;
 		gap: 2rem;
 	}
+}
 
+@media (max-width: 768px) {
 	.section-title {
 		font-size: 2.4rem;
 	}

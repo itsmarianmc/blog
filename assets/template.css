@@ -79,7 +79,6 @@ header {
 .logo {
 	font-size: 1.8rem;
 	font-weight: 700;
-	height: 33px;
 	letter-spacing: -1px;
     line-height: normal !important;
 }
@@ -153,7 +152,6 @@ nav a:hover:after {
 }
 
 .hero-content {
-	max-width: 700px;
 	margin: 0 auto;
 }
 
@@ -212,7 +210,6 @@ nav a:hover:after {
 /* Portfolio Content */
 .portfolio-content {
 	padding: 4rem 0;
-	max-width: 700px;
 	margin: 0 auto;
 }
 
@@ -297,15 +294,26 @@ nav a:hover:after {
 	.hero-title {
 		font-size: 2.8rem;
 	}
+
+	.portfolio-content {
+		padding: 4rem 20px;
+	}
 }
 
 @media (max-width: 480px) {
 	.hero-title {
 		font-size: 2.2rem;
 	}
+	.logo {
+		font-size: 1.4rem;
+	}
 
 	.content-block h2 {
 		font-size: 1.8rem;
+	}
+
+	#home-nav {
+		display: none;
 	}
 
 	nav ul {
