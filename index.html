@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Karte - Modernes Design</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="https://itsmarian.is-a.dev/assets/logos/favicon.webp" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>itsmarian's Blogs</title>
     <link rel="stylesheet" href="https://itsmarian.is-a.dev/assets/fonts/font-awesome-6.7.2/css/all.min.css">
     <link rel="stylesheet" href="https://itsmarian.is-a.dev/assets/variables.css">
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="stylesheet" href="/assets/template.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2E9SPPVJFL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2E9SPPVJFL');
+    </script>
 </head>
 <body>
     <header>
@@ -56,7 +66,7 @@
                         <a class="hashtag" href="/?q=h-about%20me">#about me</a>
                     </div>
                     <div class="card-links">
-                        <a href="/?block_id=LpP0BEsIfuLRm5H7" class="read-more">
+                        <a href="/?blog_id=LpP0BEsIfuLRm5H7" class="read-more">
                             Read more
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -229,5 +239,7 @@
     </div>
     <div class="overlay" id="overlay"></div>
     <script src="/assets/pages/index/script.js"></script>
+    <script src="https://itsmarian.is-a.dev/assets/cb.js"></script>
+    <script src="https://itsmarian.is-a.dev/assets/script.js"></script>
 </body>
 </html>
