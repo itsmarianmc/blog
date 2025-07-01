@@ -238,11 +238,12 @@ nav a:hover:after {
 	position: relative;
 }
 
-.content-block li:before {
-	content: "—";
+.content-block li::marker {
+	content: "❯ ";
 	position: absolute;
-	left: -1.5rem;
+	left: 0;
 	color: var(--accent);
+	font-weight: bold;
 }
 
 .highlight {

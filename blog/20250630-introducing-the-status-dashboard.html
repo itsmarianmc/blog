@@ -4,12 +4,222 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="https://itsmarian.is-a.dev/assets/logos/favicon.webp" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Welcome to my portfolio! - itsmarian's blogs</title>
+    <title>itsmarian's Blogs</title>
     <link rel="stylesheet" href="https://itsmarian.is-a.dev/assets/fonts/font-awesome-6.7.2/css/all.min.css">
     <link rel="stylesheet" href="https://itsmarian.is-a.dev/assets/variables.css">
     <link rel="stylesheet" href="https://itsmarian.is-a.dev/assets/style.css">
-    <link rel="stylesheet" href="/assets/template.css">
     <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/template.css">
+    <style>
+        .status-demo {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .status-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .status-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .status-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .status-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .status-item.operational {
+            color: var(--success);
+        }
+
+        .status-item.operational::before {
+            background: var(--success);
+        }
+
+        .status-item.operational .status-indicator {
+            background: var(--success);
+            box-shadow: 0 0 10px var(--success);
+        }
+
+        .status-item.degraded {
+            color: var(--error);
+        }
+
+        .status-item.degraded::before {
+            background: var(--error);
+        }
+
+        .status-item.degraded .status-indicator {
+            background: var(--error);
+            box-shadow: 0 0 10px var(--error);
+        }
+
+        .status-item span:last-child {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .step {
+            position: relative;
+            padding: 25px 25px 25px 85px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(159, 61, 250, 0.3);
+        }
+
+        .step::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 100%;
+            background: linear-gradient(135deg, #CF5DEB 0%, #9F3DFA 100%);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            z-index: 2;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--txt-1);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .step h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
+        .step p {
+            color: var(--txt-2);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-top: 15px;
+        }
+
+        /* Animation on hover */
+        .step:hover .step-number {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(159, 61, 250, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 12px rgba(159, 61, 250, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(159, 61, 250, 0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .step {
+                padding: 70px 20px 25px 20px;
+            }
+            
+            .step::before {
+                width: 100%;
+                height: 60px;
+            }
+            
+            .step-number {
+                top: 5px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .step h3 {
+                text-align: center;
+            }
+            
+            .status-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .status-item {
+                padding: 15px;
+            }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2E9SPPVJFL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2E9SPPVJFL');
+    </script>
 </head>
 <body>
     <header>
@@ -34,65 +244,135 @@
             <div class="hero-meta">
                 <div class="meta-item">
                     <i class="far fa-calendar"></i>
-                    <span>28.06.2025</span>
+                    <span>30.06.2025</span>
                 </div>
                 <div class="meta-item">
                     <i class="far fa-eye"></i>
                     <span>0 views</span>
                 </div>
             </div>
-            
             <div class="hero-tags">
-                <span class="tag">#introduction</span>
-                <span class="tag">#about-me</span>
-                <span class="tag">#portfolio</span>
+                <a class="hashtag" href="/?q=h-introduction">#introduction</a>
+                <a class="hashtag" href="/?q=h-status">#status</a>
+                <a class="hashtag" href="/?q=h-support">#support</a>
             </div>
-            
-            <h1 class="hero-title">Welcome to my portfolio!</h1>
-            <p class="hero-subtitle">A space where I share who I am, what I build, and what I'm passionate about</p>
-            
+            <h1 class="hero-title">Introducing: Status page</h1>
+            <p class="hero-subtitle">Receive LIVE information about the status, availability and possible problems of my services and the GitHub Platform Services.</p>
             <div class="divider"></div>
         </div>
     </section>
-
-    <!-- Portfolio Content -->
-    <main class="container portfolio-content">
+    <main class="container">
         <div class="content-block">
-            <h2>Welcome to My Portfolio</h2>
-            <p>Hey there! Thanks for being here.</p>
-            <p>This portfolio is more than just a collection of my projects — it's a space where I share who I am, what I think about different topics, what I build, what I'm passionate about and how I develop over time.</p>
+            <h2>Introducing the Status Dashboard</h2>
+            <p>I'm excited to introduce a new feature on my portfolio - a real-time status dashboard that monitors all my services and GitHub platform services. (Demonstration values shown below)</p>
+            <div class="status-demo">
+                <div class="status-overview">
+                    <div class="status-item operational">
+                        <span class="status-indicator"></span>
+                        <span>Website Operational</span>
+                    </div>
+                    <div class="status-item operational">
+                        <span class="status-indicator"></span>
+                        <span>Blog Operational</span>
+                    </div>
+                    <div class="status-item degraded">
+                        <span class="status-indicator"></span>
+                        <span>Projects Degraded</span>
+                    </div>
+                    <div class="status-item operational">
+                        <span class="status-indicator"></span>
+                        <span>GitHub Pages Operational</span>
+                    </div>
+                </div>
+            </div>
+            <p>This new dashboard provides real-time monitoring of all my services:</p>
         </div>
-        
         <div class="content-block">
-            <h2>About Me</h2>
-            <div class="highlight">
-                <p>I'm <strong>Marian</strong>, a 16-year-old a developer and designer with a versatile skill set across several disciplines. My journey began at age 12, building simple websites and forms in HTML. From there, I started crafting custom code snippets for various WIX sites, which honed my UX and UI design abilities. Eventually, I challenged myself to design and build a website entirely from scratch—without any site builders — igniting my passion for creating immersive digital experiences which make a difference and mark a new era in my career.</p>
-                <p>Over the years, I've broadened my expertise to encompass UI/UX design, Discord bots, and custom BetterDiscord CSS snippets. I thrive on transforming complex concepts into elegant, user-friendly, and modern solutions.</p>
-                <p>When I'm not coding, you can find me exploring new technologies, working on my Minecraft project or having fun with friends.</p>
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-heart-pulse"></i>
+                    <h3>Real-time Monitoring</h3>
+                    <p>Continuous checks of all services with status updates every 60 seconds</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bell"></i>
+                    <h3>Instant Alerts</h3>
+                    <p>Get notified immediately if any service experiences issues</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-history"></i>
+                    <h3>Historical Data</h3>
+                    <p>View uptime history and incident reports for all services</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-screen"></i>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access the dashboard from any device with full responsiveness</p>
+                </div>
             </div>
         </div>
-        
         <div class="content-block">
-            <h2>What You'll Find Here</h2>
-            <ul>
-                <li><strong>Projects</strong> — Stuff I've made, from random thoughts and experiments to actually functioning websites, tools and programms</li>
-                <li><strong>Blog Posts</strong> — Thoughts on tech, my developement, my projects, my work and my opinions on current relevant topics</li>
-                <li><strong>Pictures</strong> — Pictures I like and want to share with the world and people who are interested in my life</li>
-            </ul>
+            <h2>Monitored Services</h2>
+            <div class="services-list">
+                <div class="service-category">
+                    <h3><i class="fas fa-globe"></i> Personal Services</h3>
+                    <ul>
+                        <li>Website (itsmarian.is-a.dev)</li>
+                        <li>Blog (blog.itsmarian.is-a.dev)</li>
+                        <li>Pictures (pics.itsmarian.is-a.dev)</li>
+                        <li>Projects (projects.itsmarian.is-a.dev)</li>
+                        <li>GitHub Pages (itsmarianmc.github.io)</li>
+                    </ul>
+                </div>
+                <div class="service-category">
+                    <h3><i class="fab fa-github"></i> GitHub Services</h3>
+                    <ul>
+                        <li>Git Operations</li>
+                        <li>API Requests</li>
+                        <li>Webhooks</li>
+                        <li>Pull Requests</li>
+                        <li>GitHub Actions</li>
+                        <li>GitHub Pages</li>
+                        <li>GitHub Copilot</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        
         <div class="content-block">
-            <h2>Why I Built This</h2>
-            <p>This site is MY place of the internet. I wanted a space where I could:</p>
-            <ul>
-                <li>Share what I'm working on</li>
-                <li>Reflect on what I'm learning</li>
-                <li>Show up as myself, fully</li>
-                <li>Tell others my option about topics</li>
-            </ul>
-            <p>Whether you're a fellow dev, a future collaborator, or just curious—  thank you for being here and taking the time to read this!</p>
+            <h2>How It Works</h2>
+            <p>The status dashboard uses advanced monitoring techniques to ensure accurate reporting:</p>
+            
+            <div class="workflow">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Service Checks</h3>
+                    <p>Each service is checked every minute using HEAD requests</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Status Analysis</h3>
+                    <p>Response codes and times are analyzed to determine service health</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>GitHub API</h3>
+                    <p>GitHub platform status is monitored via their official status API</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Visual Display</h3>
+                    <p>Status is displayed using intuitive color coding and indicators</p>
+                </div>
+            </div>
         </div>
-        
+        <div class="content-block cta">
+            <h2>Experience the Dashboard</h2>
+            <p>Check out the live status dashboard to see real-time service monitoring in action.</p>
+            <a href="https://status.itsmarian.is-a.dev/" class="linkout btn btn--primary ripple-btn" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Visit Status Dashboard
+            </a>
+        </div>
         <p class="signature">— itsmarian</p>
     </main>
     <footer>

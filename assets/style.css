@@ -90,9 +90,9 @@ h1, h2, h3, h4, h5 {
 }
 
 .blog-card:hover {
-	transform: translateY(-10px);
-	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-	border-color: rgba(159, 61, 250, 0.5);
+	transform: translateY(-10px) !important;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+	border-color: rgba(159, 61, 250, 0.5) !important;
 }
 
 .card-image {
@@ -263,6 +263,10 @@ h1, h2, h3, h4, h5 {
 	padding: 0.4rem 1rem;
 	transition: all 0.2s ease;
 	text-decoration: none;
+}
+
+.hashtag:hover {
+	transform: scale(1.025);
 }
 
 .bold {
