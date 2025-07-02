@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            document.querySelector('.section-title').textContent = `Projects tagged #${tag}`;
+            document.querySelector('.section-title').textContent = `Blogs tagged #${tag}`;
             document.querySelector('.section-subtitle').textContent = `Showing blog with the hashtag #${tag}`;
         } else {
             document.querySelector('.hashtag-filters').remove();
