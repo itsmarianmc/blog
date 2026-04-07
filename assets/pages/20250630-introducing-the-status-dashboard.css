@@ -1,0 +1,267 @@
+/* Status Dashboard頁面專屬樣式 */
+.hashtag {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-dim);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.hashtag:hover {
+    color: var(--accent);
+    border-color: rgba(226, 232, 240, 0.25);
+    background: rgba(226, 232, 240, 0.05);
+}
+
+.status-demo {
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    padding: 25px;
+    margin: 30px 0;
+    border: 1px solid var(--border);
+}
+
+.status-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.status-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.2s ease;
+    border: 1px solid var(--border);
+}
+
+.status-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-hover);
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-item.operational .status-indicator {
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+}
+
+.status-item.degraded .status-indicator {
+    background: var(--warning);
+    box-shadow: 0 0 8px var(--warning);
+}
+
+.status-item.operational span:last-child {
+    color: var(--success);
+}
+
+.status-item.degraded span:last-child {
+    color: var(--warning);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin: 30px 0;
+}
+
+.feature {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.feature:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+}
+
+.feature i {
+    font-size: 36px;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.feature p {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 30px 0;
+}
+
+.service-category {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 24px;
+}
+
+.service-category h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.service-category ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.service-category li {
+    margin: 8px 0;
+    color: var(--text-muted);
+}
+
+.workflow {
+    margin: 30px 0;
+}
+
+.step {
+    position: relative;
+    padding: 20px 20px 20px 70px;
+    margin-bottom: 20px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.step:hover {
+    transform: translateX(8px);
+    border-color: var(--border-hover);
+}
+
+.step-number {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--surface-hover);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+}
+
+.step h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.step p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.cta {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    margin: 50px 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn--primary {
+    border-radius: 10px;
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: var(--surface-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(67, 67, 67, 0.3);
+}
+
+/* 響應式 - Status專屬 */
+@media (max-width: 700px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .services-list {
+        grid-template-columns: 1fr;
+    }
+    .step {
+        padding: 50px 15px 15px 15px;
+    }
+    .step-number {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .status-overview {
+        grid-template-columns: 1fr;
+    }
+}

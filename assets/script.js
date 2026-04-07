@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const blogId = params.get("blog_id");
 
     if (blogId) {
-        fetch("assets/pages/index/blogs.json")
+        fetch("/blogs.json")
             .then(response => response.json())
             .then(blogs => {
                 for (const [path, id] of Object.entries(blogs)) {
